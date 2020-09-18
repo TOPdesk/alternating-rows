@@ -1,0 +1,25 @@
+/* ==UserStyle==
+@name           TOPdesk alternating rows
+@namespace      github.com/topdesk/topdesk-alternating-rows
+@version        1.0.0
+@description    Apply a background color to every other row in a TOPdesk overview.
+@homepageURL    https://github.com/TOPdesk/alternating-rows
+@supportURL     https://github.com/TOPdesk/alternating-rows/issues
+@license        MIT
+@preprocessor   default
+@var color odd "Odd rows" rgba(255, 255, 255, 0)
+@var color even "Even rows" rgba(0, 0, 0, 0.1)
+==/UserStyle== */
+
+
+@-moz-document regexp("http(s)?://.*/tas/secure/grid.*") {
+  .checkcolumn > span:nth-child(2n-1),
+  .column > span:nth-child(2n-1) {
+    background: var(--odd);
+  }
+  
+  .checkcolumn > span:nth-child(2n),
+  .column > span:nth-child(2n) {
+    background: var(--even);
+  }
+}
